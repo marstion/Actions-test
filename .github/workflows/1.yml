@@ -18,6 +18,8 @@ jobs:
       - name: Build project
         run: |
           # build
+          pwd && \
+          ls && \
           mkdir target && cd target && df -h > df.txt && free -g > free.txt && cat /proc/cpuinfo > cpuinfo.txt
 
       - name: Upload build artifact
