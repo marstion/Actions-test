@@ -1,6 +1,8 @@
 name: CI
 
 on:
+  repository_dispatch:
+  workflow_dispatch:
   push:
     branches:
       - master # 触发工作流的分支
