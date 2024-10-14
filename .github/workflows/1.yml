@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master # 触发工作流的分支
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build project
+        run: |
+          # build
+          mkdir target && cd target && touch target-v1.0.0.sh touch target-prod-v1.0.0.sh
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-folder
+          path: target/
