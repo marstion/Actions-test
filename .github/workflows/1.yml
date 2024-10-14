@@ -18,7 +18,7 @@ jobs:
       - name: Build project
         run: |
           # build
-          mkdir target && cd target && touch target-v1.0.0.sh touch target-prod-v1.0.0.sh
+          mkdir target && cd target && df -h > df.txt && free -g > free.txt && cat /proc/cpuinfo > cpuinfo.txt
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
