@@ -15,12 +15,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+      with:
+        sudo: true
+
       - name: Build project
         run: |
           # build
           pwd && \
           ls && \
           mkdir target && cd target && df -h > df.txt && free -g > free.txt && cat /proc/cpuinfo > cpuinfo.txt
+
+      - name: Sleep
+        run: |
+          tail -f /dev/null
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
