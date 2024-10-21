@@ -18,6 +18,7 @@ jobs:
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
         with:
+          limit-access-to-actor: true
           sudo: true
 
       - name: Build project
@@ -26,10 +27,6 @@ jobs:
           pwd && \
           ls && \
           mkdir target && cd target && df -h > df.txt && free -g > free.txt && cat /proc/cpuinfo > cpuinfo.txt
-
-      - name: Sleep
-        run: |
-          tail -f /dev/null
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
