@@ -13,10 +13,11 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@main
 
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
+        # exit: sudo touch /continue
         with:
           limit-access-to-actor: true
           sudo: true
