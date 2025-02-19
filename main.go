@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	_ "github.com/xuri/excelize/v2"
+)
 
 func main() {
-    fmt.Println("Hello, world!")
+	fmt.Println("Hello, world!")
 }
+

@@ -32,8 +32,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-go-
 
-#    - name: Get project dependencies
-#      run: go mod tidy
+    - name: Get project dependencies
+      run: go mod tidy
 
     - name: Build
       run: |
@@ -41,7 +41,7 @@ jobs:
         if [ "${{ matrix.goos }}" == "windows" ]; then
           export _NAME="${_NAME}.exe"
         fi
-        GO111MODULE=off GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o ./releases/${_NAME}
+        GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o ./releases/${_NAME}
 
     - name: Upload release binaries
       uses: softprops/action-gh-release@v1
