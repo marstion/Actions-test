@@ -43,8 +43,7 @@ jobs:
         fi
         GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o ./releases/${_NAME}
 
-    - name: Create Release Asset
-      name: Upload release binaries
+    - name: Upload release binaries
       uses: softprops/action-gh-release@v1
       with:
         files: releases/*   # 上传所有交叉编译的文件
