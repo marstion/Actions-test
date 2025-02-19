@@ -47,6 +47,8 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: releases/*   # 上传所有交叉编译的文件
+      env:
+        GITHUB_TOKEN: ${{ secrets.token }} 
 
   release:
     needs: build
