@@ -62,10 +62,12 @@ jobs:
         run: echo "::set-output name=tag::$(echo ${GITHUB_REF} | sed 's/refs\/tags\///')"
 
       - name: Create Release
-        uses: gh-cli/gh-release-action@v1
+        uses: softprops/action-gh-release@v1
         with:
           tag: ${{ steps.get_tag.outputs.tag }}
           release-name: Release ${{ steps.get_tag.outputs.tag }}
           body: |
             ### 新版本 ${{ steps.get_tag.outputs.tag }} 发布
             - 测试发布功能
+        env:
+          GITHUB_TOKEN: ${{ secrets.token }} 
