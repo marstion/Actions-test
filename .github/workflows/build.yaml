@@ -32,8 +32,8 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-go-
 
-    - name: Get project dependencies
-      run: go mod tidy
+#    - name: Get project dependencies
+#      run: go mod tidy
 
     - name: Build
       run: |
