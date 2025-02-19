@@ -41,7 +41,7 @@ jobs:
         if [ "${{ matrix.goos }}" == "windows" ]; then
           export _NAME="${_NAME}.exe"
         fi
-        GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o ./releases/${_NAME}
+        GO111MODULE=off GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o ./releases/${_NAME}
 
     - name: Upload release binaries
       uses: softprops/action-gh-release@v1
