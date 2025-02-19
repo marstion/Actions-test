@@ -68,5 +68,3 @@ jobs:
           body: |
             ### 新版本 ${{ steps.get_tag.outputs.tag }} 发布
             - 测试发布功能
-            - 添加了yyy功能
-            - 优化了zzz部分
